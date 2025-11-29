@@ -13,9 +13,9 @@ A collection of fundamental data structures implemented from scratch in Rust for
 ## Implemented Data Structures
 
 ### Trees
-- **Binary Search Tree (BST)** - Generic binary tree with ordered insertion, search, deletion, and tree traversals
-- **AVL Tree** _(in progress)_ - Self-balancing binary search tree
-- **B-Tree** _(in progress)_ - Multi-way search tree optimized for disk access
+- **Binary Search Tree** - Generic binary tree with ordered insertion, search, deletion, and tree traversals
+- **AVL Tree** - Self-balancing binary search tree
+- **B-Tree** - Multi-way search tree optimized for disk access
 
 ## Performance
 
