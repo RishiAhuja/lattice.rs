@@ -5,29 +5,33 @@ use std::fmt::Debug;
 pub struct Node<T> {
     pub val: T,
     pub left: Option<Box<Node<T>>>,
-    pub right: Option<Box<Node<T>>>
+    pub right: Option<Box<Node<T>>>,
 }
 
 impl<T> Node<T> {
     pub fn new(val: T) -> Self {
         Node {
             val,
-            left: None, 
-            right: None
+            left: None,
+            right: None,
         }
     }
 }
 
 #[derive(Debug)]
 pub struct BinaryTree<T> {
-    pub root: Option<Box<Node<T>>>
+    pub root: Option<Box<Node<T>>>,
+}
+
+impl<T: Ord + Copy + Debug> Default for BinaryTree<T> {
+    fn default() -> Self {
+        Self::new()
+    }
 }
 
 impl<T: Ord + Copy + Debug> BinaryTree<T> {
     pub fn new() -> Self {
-        BinaryTree {
-            root: None
-        }
+        BinaryTree { root: None }
     }
 
     pub fn insert(&mut self, val: T) {
@@ -40,18 +44,18 @@ impl<T: Ord + Copy + Debug> BinaryTree<T> {
                 *node = Some(Box::new(Node::new(val)));
             }
             Some(n) => {
-                if val < n.val { 
+                if val < n.val {
                     Self::insert_rec(&mut n.left, val);
-                }else {
+                } else {
                     Self::insert_rec(&mut n.right, val);
                 }
             }
         }
-    } 
+    }
 
     pub fn search(&self, val: T) -> bool {
         let mut current = &self.root;
-        while let Some(n) = current { 
+        while let Some(n) = current {
             if val == n.val {
                 return true;
             } else if val < n.val {
@@ -79,7 +83,7 @@ impl<T: Ord + Copy + Debug> BinaryTree<T> {
         }
     }
 
-    pub fn count_nodes(&self) -> i32{
+    pub fn count_nodes(&self) -> i32 {
         Self::count_nodes_rec(&self.root)
     }
 
@@ -93,19 +97,20 @@ impl<T: Ord + Copy + Debug> BinaryTree<T> {
     pub fn count_leaves(&self) -> i32 {
         Self::count_leaves_rec(&self.root)
     }
-    
-    fn count_leaves_rec(node: &Option<Box<Node<T>>>) -> i32 { 
+
+    fn count_leaves_rec(node: &Option<Box<Node<T>>>) -> i32 {
         match node {
             None => 0,
             Some(n) => {
-                if n.left.is_none() && n.right.is_none() { return 1; }
-                else {
+                if n.left.is_none() && n.right.is_none() {
+                    1
+                } else {
                     Self::count_leaves_rec(&n.left) + Self::count_leaves_rec(&n.right)
                 }
             }
         }
     }
-    
+
     pub fn print_inorder(&self) {
         print!("Inorder: ");
         Self::inorder_rec(&self.root);
@@ -172,7 +177,7 @@ impl<T: Ord + Copy + Debug> BinaryTree<T> {
                     if n.right.is_none() {
                         return n.left;
                     }
-                    
+
                     let min_val = Self::find_min(&n.right);
                     n.val = min_val;
                     n.right = Self::delete_rec(n.right, min_val);

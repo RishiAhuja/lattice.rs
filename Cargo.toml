@@ -1,6 +1,20 @@
 [package]
-name = "ds_rs"
+name = "lattice"
 version = "0.1.0"
-edition = "2024"
+edition = "2021"
+authors = ["Rishi Ahuja <www.rishiahuja@gmail.com>"]
+license = "MIT"
+description = "A collection of fundamental data structures implemented from scratch in Rust"
+repository = "https://github.com/rishiahuja/lattice.rs"
+keywords = ["data-structures", "algorithms", "binary-tree", "educational"]
+categories = ["data-structures", "algorithms"]
+readme = "README.md"
 
 [dependencies]
+
+[dev-dependencies]
+criterion = { version = "0.5", features = ["html_reports"] }
+
+[[bench]]
+name = "tree_benchmarks"
+harness = false
