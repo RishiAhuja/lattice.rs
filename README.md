@@ -1,7 +1,7 @@
 # lattice.rs
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/RishiAhuja/lattice.rs/main/assets/benchmark-example.png" alt="Benchmark Example" width="600">
+  <img src="https://raw.githubusercontent.com/RishiAhuja/lattice.rs/refs/heads/master/assets/searc_random_bench.png" alt="Benchmark Example" width="600">
 </p>
 
 A collection of fundamental data structures implemented from scratch in Rust for learning and reference.
