@@ -1,5 +1,9 @@
 # lattice.rs
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/RishiAhuja/lattice.rs/main/assets/benchmark-example.png" alt="Benchmark Example" width="600">
+</p>
+
 A collection of fundamental data structures implemented from scratch in Rust for learning and reference.
 
 ## Overview
@@ -12,6 +16,16 @@ A collection of fundamental data structures implemented from scratch in Rust for
 - **Binary Search Tree (BST)** - Generic binary tree with ordered insertion, search, deletion, and tree traversals
 - **AVL Tree** _(in progress)_ - Self-balancing binary search tree
 - **B-Tree** _(in progress)_ - Multi-way search tree optimized for disk access
+
+## Performance
+
+Run comprehensive benchmarks to compare data structure performance:
+
+```bash
+cargo bench
+```
+
+View detailed HTML reports with interactive charts at `target/criterion/report/index.html`
 
 ## Contributing
 
